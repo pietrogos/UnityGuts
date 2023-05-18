@@ -842,7 +842,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33346
+  m_Name: pb_Mesh34556
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2959,7 +2959,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 86.59
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6863,11 +6863,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 647494911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8d4b407c5cd6c478e7818d06042a0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 619a48efc601d704d8641e2c4f6a6cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 0}
   blueColor: {r: 0, g: 0, b: 0, a: 0}
+  fuel: 0
 --- !u!65 &647494918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12679,7 +12680,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33284
+  m_Name: pb_Mesh34494
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
