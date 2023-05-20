@@ -17,8 +17,6 @@ public class combustivel : MonoBehaviour
 
         ParticleSystem.MainModule main = GetComponent<ParticleSystem>().main;
         ParticleSystem.EmissionModule emission = GetComponent<ParticleSystem>().emission;
-        Debug.Log(main.startLifetime.constant);
-        Debug.Log(emission.rateOverTime.constant);
 
         float currentLifetime = main.startLifetime.constant;
         float currentRate =  emission.rateOverTime.constant;
