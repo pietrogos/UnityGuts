@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fogueira
   - Combustivel
+  - camera 2
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - observacao
   - 
   - 
   - 
