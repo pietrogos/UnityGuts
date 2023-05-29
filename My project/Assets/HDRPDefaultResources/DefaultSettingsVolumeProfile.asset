@@ -198,16 +198,16 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 13.36
+    m_Value: 3.53
   multiplier:
     m_OverrideState: 0
     m_Value: 1
   upperHemisphereLuxValue:
     m_OverrideState: 1
-    m_Value: 0.4660715
+    m_Value: 0.46607146
   upperHemisphereLuxColor:
     m_OverrideState: 1
-    m_Value: {x: 0.18750614, y: 0.29181972, z: 0.5}
+    m_Value: {x: 0.18750615, y: 0.29181966, z: 0.5}
   desiredLuxValue:
     m_OverrideState: 0
     m_Value: 20000
@@ -333,11 +333,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   threshold:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 8.39
   intensity:
     m_OverrideState: 1
-    m_Value: 0.489
+    m_Value: 0.083
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -377,13 +377,13 @@ MonoBehaviour:
   active: 1
   skyType:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 4
   cloudType:
     m_OverrideState: 0
     m_Value: 0
   skyAmbientMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   windOrientation:
     m_OverrideState: 0
     m_Value: 0
@@ -425,8 +425,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: -10
   limitMax:
-    m_OverrideState: 0
-    m_Value: 10
+    m_OverrideState: 1
+    m_Value: 12.641794
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -565,13 +565,13 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 3.03
+    m_Value: 0.45
   directLightingStrength:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0.106
   radius:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 1.41
   spatialBilateralAggressiveness:
     m_OverrideState: 0
     m_Value: 0.15
