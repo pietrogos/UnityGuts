@@ -7,6 +7,8 @@ TagManager:
   - Fogueira
   - Combustivel
   - camera 2
+  - FogueiraCollider
+  - Spawn
   layers:
   - Default
   - TransparentFX

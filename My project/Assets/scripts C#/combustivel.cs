@@ -10,6 +10,15 @@ public class combustivel : MonoBehaviour
     public int fuel = 0;
     private float update;
 
+    private float MIN_LIFETIME = 0.5f;
+    private float MIN_EMISSION = 86f;
+    private float MAX_LIFETIME = 2.8f;
+    private float MAX_EMISSION = 250f;
+
+    private float RATE_RAISE_LIFETIME = 0.6f;
+    private float RATE_LOWER_LIFETIME = 0.2f;
+    private float RATE_RAISE_EMISSION = 50f;
+    private float RATE_LOWER_EMISSION = 20f;
     
     private void Update()
     {
@@ -21,18 +30,26 @@ public class combustivel : MonoBehaviour
         float currentLifetime = main.startLifetime.constant;
         float currentRate =  emission.rateOverTime.constant;
 
-        if (update > 5.0f)
+        if (update > 2.5f)
         {
             update = 0.0f;
 
-            if (currentLifetime - 0.01f >= 0.5f) 
+            if (currentLifetime - RATE_LOWER_LIFETIME >= MIN_LIFETIME) 
             {
-                main.startLifetime = currentLifetime - 0.01f;
+                main.startLifetime = currentLifetime - RATE_LOWER_LIFETIME;
+            }
+            else 
+            {
+                main.startLifetime = MIN_LIFETIME;
             }
 
-            if (currentRate - 2f >= 86.59)
+            if (currentRate - RATE_LOWER_EMISSION >= MIN_EMISSION)
             {
-                emission.rateOverTime = currentRate - 2f;
+                emission.rateOverTime = currentRate - RATE_LOWER_EMISSION;
+            } 
+            else
+            {
+                emission.rateOverTime = MIN_EMISSION;
             }
         }
     }
@@ -40,7 +57,6 @@ public class combustivel : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-      
         if (other.CompareTag("Combustivel"))
         {
             fuel++;
@@ -50,11 +66,27 @@ public class combustivel : MonoBehaviour
             ParticleSystem.EmissionModule emission = GetComponent<ParticleSystem>().emission;
 
             float currentLifetime = main.startLifetime.constant;
-            main.startLifetime = currentLifetime + 0.01f;
-
             float currentRate = emission.rateOverTime.constant;
-            emission.rateOverTime = currentRate + 2f;
+
+            if(currentLifetime + RATE_RAISE_LIFETIME <= MAX_LIFETIME)
+            {
+                main.startLifetime = currentLifetime + RATE_RAISE_LIFETIME;
+            } 
+            else 
+            {
+                main.startLifetime = MAX_LIFETIME;
+            }
+
+
+
+            if(currentRate + RATE_RAISE_EMISSION <= MAX_EMISSION)
+            {
+                emission.rateOverTime = currentRate + RATE_RAISE_EMISSION;
+            } 
+            else 
+            {
+                emission.rateOverTime = MAX_EMISSION;
+            }
         }
     }
-    
 }
