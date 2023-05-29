@@ -42,7 +42,7 @@ Material:
   - TransparentBackface
   - RayTracingPrepass
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _ReceivesSSR
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -108,7 +108,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 294.06674, g: 294.06674, b: 294.06674, a: 0}
+    - _Color: {r: 246.22386, g: 246.22386, b: 246.22386, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
