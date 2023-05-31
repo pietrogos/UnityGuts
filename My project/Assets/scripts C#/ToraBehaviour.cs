@@ -7,6 +7,12 @@ public class ToraBehaviour : MonoBehaviour
     private float lifespan = 3.0f;
     private bool isInsideFire = false;
     private bool isInsideSpawn = false;
+    private FireController fireController;
+
+    private void Start() 
+    {
+        fireController = FindObjectOfType<FireController>();
+    }
 
     private void Update()
     {
@@ -30,6 +36,7 @@ public class ToraBehaviour : MonoBehaviour
         if (other.CompareTag("FogueiraCollider"))
         {
             isInsideFire = true;
+            fireController.OnWoodAdded();
         }
     }
 

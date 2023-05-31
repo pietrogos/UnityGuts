@@ -10,14 +10,15 @@ public class combustivel : MonoBehaviour
     public int fuel = 0;
     private float update;
 
-    private float MIN_LIFETIME = 0.5f;
-    private float MIN_EMISSION = 86f;
-    private float MAX_LIFETIME = 2.8f;
-    private float MAX_EMISSION = 250f;
+    // private float MIN_LIFETIME = 0.5f;
+    // private float MAX_LIFETIME = 2.8f;
 
-    private float RATE_RAISE_LIFETIME = 0.6f;
-    private float RATE_LOWER_LIFETIME = 0.2f;
-    private float RATE_RAISE_EMISSION = 50f;
+    private float MIN_EMISSION = 1f;
+    private float MAX_EMISSION = 50;
+
+    // private float RATE_RAISE_LIFETIME = 0.6f;
+    // private float RATE_LOWER_LIFETIME = 0.2f;
+    private float RATE_RAISE_EMISSION = 8f;
     private float RATE_LOWER_EMISSION = 20f;
     
     private void Update()
@@ -34,23 +35,23 @@ public class combustivel : MonoBehaviour
         {
             update = 0.0f;
 
-            if (currentLifetime - RATE_LOWER_LIFETIME >= MIN_LIFETIME) 
-            {
-                main.startLifetime = currentLifetime - RATE_LOWER_LIFETIME;
-            }
-            else 
-            {
-                main.startLifetime = MIN_LIFETIME;
-            }
+            // if (currentLifetime - RATE_LOWER_LIFETIME >= MIN_LIFETIME) 
+            // {
+            //     main.startLifetime = currentLifetime - RATE_LOWER_LIFETIME;
+            // }
+            // else 
+            // {
+            //     main.startLifetime = MIN_LIFETIME;
+            // }
 
-            if (currentRate - RATE_LOWER_EMISSION >= MIN_EMISSION)
-            {
-                emission.rateOverTime = currentRate - RATE_LOWER_EMISSION;
-            } 
-            else
-            {
-                emission.rateOverTime = MIN_EMISSION;
-            }
+            // if (currentRate - RATE_LOWER_EMISSION >= MIN_EMISSION)
+            // {
+            //     emission.rateOverTime = currentRate - RATE_LOWER_EMISSION;
+            // } 
+            // else
+            // {
+            //     emission.rateOverTime = MIN_EMISSION;
+            // }
         }
     }
 
@@ -64,20 +65,23 @@ public class combustivel : MonoBehaviour
 
             ParticleSystem.MainModule main = GetComponent<ParticleSystem>().main;
             ParticleSystem.EmissionModule emission = GetComponent<ParticleSystem>().emission;
+            ParticleSystem.SizeOverLifetimeModule size = GetComponent<ParticleSystem>().sizeOverLifetime;
 
             float currentLifetime = main.startLifetime.constant;
             float currentRate = emission.rateOverTime.constant;
+            float currentShapeY = size.y.constant;
+            Debug.Log("Valor:" + currentShapeY);
 
-            if(currentLifetime + RATE_RAISE_LIFETIME <= MAX_LIFETIME)
-            {
-                main.startLifetime = currentLifetime + RATE_RAISE_LIFETIME;
-            } 
-            else 
-            {
-                main.startLifetime = MAX_LIFETIME;
-            }
+            // if(currentLifetime + RATE_RAISE_LIFETIME <= MAX_LIFETIME)
+            // {
+            //     main.startLifetime = currentLifetime + RATE_RAISE_LIFETIME;
+            // } 
+            // else 
+            // {
+            //     main.startLifetime = MAX_LIFETIME;
+            // }
 
-
+            size.y = currentShapeY + 2;
 
             if(currentRate + RATE_RAISE_EMISSION <= MAX_EMISSION)
             {
