@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -170449087503558238}
   - component: {fileID: 7061584314710984868}
   - component: {fileID: 5866056428847431959}
-  - component: {fileID: -3718735406610864780}
+  - component: {fileID: 3437569926513884104}
   m_Layer: 0
   m_Name: tora
   m_TagString: Combustivel
@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7177721507258004283
 MeshFilter:
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &-3718735406610864780
+--- !u!114 &3437569926513884104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
