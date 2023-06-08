@@ -26,11 +26,11 @@ public class FireController : MonoBehaviour
 
     private Vector3 fireMainsOriginalScale;
 
-    private float fireRateOverTime = 40f;
-    private float ringsRateOverTime = 10f;
-    private float embersSmallRateOverTime = 40f;
-    private float embersFlickeringRateOverTime = 10f;
-    private float fireMainsRateOverTime = 10f;
+    private float fireRateOverTime = 5f;
+    private float ringsRateOverTime = 5f;
+    private float embersSmallRateOverTime = 20f;
+    private float embersFlickeringRateOverTime = 3f;
+    private float fireMainsRateOverTime = 5f;
 
     private void Awake()
     {
@@ -54,16 +54,16 @@ public class FireController : MonoBehaviour
 
     private void Update()
     {
-        // Decrease rate over time every 3 seconds
-        fireRateOverTime = Mathf.Max(40f, fireRateOverTime - (2f * Time.deltaTime));
-        ringsRateOverTime = Mathf.Max(10f, ringsRateOverTime - (10f / 3f * Time.deltaTime));
-        embersSmallRateOverTime = Mathf.Max(40f, embersSmallRateOverTime - (3f * Time.deltaTime));
-        embersFlickeringRateOverTime = Mathf.Max(10f, embersFlickeringRateOverTime - (3f * Time.deltaTime));
-        fireMainsRateOverTime = Mathf.Max(10f, fireMainsRateOverTime - (3f * Time.deltaTime));
+        // Decrease rate over time every 20 seconds
+        fireRateOverTime = Mathf.Max(5f, fireRateOverTime - (0.3f * Time.deltaTime));
+        ringsRateOverTime = Mathf.Max(5f, ringsRateOverTime - (0.75f * Time.deltaTime));
+        embersSmallRateOverTime = Mathf.Max(20f, embersSmallRateOverTime - (1.5f * Time.deltaTime));
+        embersFlickeringRateOverTime = Mathf.Max(5f, embersFlickeringRateOverTime - (1.5f * Time.deltaTime));
+        fireMainsRateOverTime = Mathf.Max(5f, fireMainsRateOverTime - (1.5f * Time.deltaTime));
 
-        // Decrease Fire Mains scale every 3 seconds
-        Vector3 decreaseScale = new Vector3(0.175f, 0.175f, 0.175f) * Time.deltaTime;
-        fireMains.transform.localScale = Vector3.Max(fireMainsOriginalScale * 0.5f, fireMains.transform.localScale - decreaseScale);
+        // Decrease Fire Mains scale every 20 seconds
+        Vector3 decreaseScale = new Vector3(0.01f, 0.01f, 0.01f) * Time.deltaTime;
+        fireMains.transform.localScale = Vector3.Max(fireMainsOriginalScale * 0.3f, fireMains.transform.localScale - decreaseScale);
 
         // Update the emissions
         fireEmission.rateOverTime = fireRateOverTime;
@@ -73,14 +73,16 @@ public class FireController : MonoBehaviour
         fireMainsEmission.rateOverTime = fireMainsRateOverTime;
     }
 
+
+
     public void OnWoodAdded()
     {
         // Increase rate over time
-        fireRateOverTime = 400f;
-        ringsRateOverTime += 25f;
-        embersSmallRateOverTime = 300f;
-        embersFlickeringRateOverTime = Mathf.Max(50f, embersFlickeringRateOverTime);
-        fireMainsRateOverTime = Mathf.Max(25f, fireMainsRateOverTime);
+        fireRateOverTime = 50f;
+        ringsRateOverTime += 20f;
+        embersSmallRateOverTime = 100f;
+        embersFlickeringRateOverTime = Mathf.Max(20f, embersFlickeringRateOverTime);
+        fireMainsRateOverTime = Mathf.Max(15f, fireMainsRateOverTime);
 
         // Increase Fire Mains scale
         fireMains.transform.localScale += new Vector3(0.3f, 0.3f, 0.3f);
@@ -93,11 +95,11 @@ public class FireController : MonoBehaviour
         fireMainsEmission.rateOverTime = fireMainsRateOverTime;
 
         // Start the co-routines to decrease values after 2 seconds
-        StartCoroutine(DecreaseAfterSeconds(fireEmission, 400f, 10f, 2f));
-        StartCoroutine(DecreaseAfterSeconds(ringsEmission, ringsRateOverTime, 10f, 2f));
-        StartCoroutine(DecreaseAfterSeconds(embersSmallEmission, 300f, 15f, 2f));
-        StartCoroutine(DecreaseAfterSeconds(embersFlickeringEmission, embersFlickeringRateOverTime, 10f, 2f));
-        StartCoroutine(DecreaseAfterSeconds(fireMainsEmission, fireMainsRateOverTime, 8f, 2f));
+        StartCoroutine(DecreaseAfterSeconds(fireEmission, 200f, 80f, 1f));
+        StartCoroutine(DecreaseAfterSeconds(ringsEmission, ringsRateOverTime, 80f, 1f));
+        StartCoroutine(DecreaseAfterSeconds(embersSmallEmission, 100f, 30f, 1f));
+        StartCoroutine(DecreaseAfterSeconds(embersFlickeringEmission, embersFlickeringRateOverTime, 15f, 1f));
+        StartCoroutine(DecreaseAfterSeconds(fireMainsEmission, fireMainsRateOverTime, 10f, 1f));
     }
 
     private IEnumerator DecreaseAfterSeconds(ParticleSystem.EmissionModule emission, float startingValue, float decreaseValue, float seconds)

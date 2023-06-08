@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ToraBehaviour : MonoBehaviour
 {
-    private float lifespan = 3.0f;
+    private float lifespan = 20.0f;
     private bool isInsideFire = false;
     private bool isInsideSpawn = false;
     private FireController fireController;
