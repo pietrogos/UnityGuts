@@ -8,10 +8,12 @@ public class ToraBehaviour : MonoBehaviour
     private bool isInsideFire = false;
     private bool isInsideSpawn = false;
     private FireController fireController;
+    private WoodSpawner woodSpawner;
 
     private void Start() 
     {
         fireController = FindObjectOfType<FireController>();
+        woodSpawner = FindObjectOfType<WoodSpawner>();
     }
 
     private void Update()
@@ -23,6 +25,7 @@ public class ToraBehaviour : MonoBehaviour
 
         if (lifespan <= 0)
         {
+            woodSpawner.DecreaseToraCount();
             Destroy(this.gameObject);
         }
     }
