@@ -9,6 +9,7 @@ public class ToraBehaviour : MonoBehaviour
     private bool isInsideSpawn = false;
     private FireController fireController;
     private WoodSpawner woodSpawner;
+    public GameObject sparkleEffectPrefab;
 
     private void Start() 
     {
@@ -39,6 +40,7 @@ public class ToraBehaviour : MonoBehaviour
         if (other.CompareTag("FogueiraCollider"))
         {
             isInsideFire = true;
+            Instantiate(sparkleEffectPrefab, transform.position, Quaternion.identity);
             fireController.OnWoodAdded();
         }
     }
