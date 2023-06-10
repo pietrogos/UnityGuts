@@ -9,6 +9,7 @@ TagManager:
   - camera 2
   - FogueiraCollider
   - Spawn
+  - player spawn
   layers:
   - Default
   - TransparentFX
