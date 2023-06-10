@@ -9,12 +9,15 @@ public class ToraBehaviour : MonoBehaviour
     private bool isInsideSpawn = false;
     private FireController fireController;
     private WoodSpawner woodSpawner;
+    private AudioSource audioSource;
     public GameObject sparkleEffectPrefab;
+    
 
     private void Start() 
     {
         fireController = FindObjectOfType<FireController>();
         woodSpawner = FindObjectOfType<WoodSpawner>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -41,6 +44,10 @@ public class ToraBehaviour : MonoBehaviour
         {
             isInsideFire = true;
             Instantiate(sparkleEffectPrefab, transform.position, Quaternion.identity);
+            if (audioSource && audioSource.clip)
+            {
+                audioSource.Play();
+            }
             fireController.OnWoodAdded();
         }
     }
